@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"></link>
+    <script>
+        const roomName = '<%= roomName %>';
+        const rooms = '<%= rooms %>';
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="functions.js"></script>
+    <script src="index.js" defer></script>
+    <title>Chat web</title>
+</head>
+<body>
+    <div class="modal">
+        <div class="modal__form-nick">
+            <h1 class="titulo">Chat
+                <span class="titulo__texto">web</span>
+            </h1>
+            <input class="modal__input" type="text" placeholder="Introduce tu nick..." autofocus>
+        </div>
+    </div>
+    <header class="header">
+        <div class="logo">
+            <img class="logo__imagen" src="/img/chat_icon.png" alt="">
+            <div class="logo__texto">
+                <h1 class="titulo titulo--center">Chat
+                    <span class="titulo__texto">web</span>
+                </h1>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="chat">
+            <div class="chat__usuarios-sala">
+                <div class="cabecera">
+                    <h2 class="cabecera__texto">Usuarios</h2>
+                </div>
+                <div class="chat__usuarios-contenedor"> 
+                </div>
+            </div>
+            <div class="chat__mensajes">
+                <div class="logo__--absolute">
+                    <h1 class="titulo">
+                        <span class="titulo__texto"><%= roomName %></span>
+                    </h1>
+                </div>
+                <div class="cabecera"></div>
+                <div class="chat__caja-mensajes"></div>
+            </div>
+            <form class="chat__form-enviar">
+                <textarea class="chat__caja-mensaje" type="text" name="mensaje"></textarea>
+                <button class="chat__boton">Enviar</button>
+            </form>
+        </div>
+        <div class="cont-salas">
+            <% rooms.forEach((room) => { %>
+                <a href="/<%= room.nombre %>">
+                    <div class="sala">
+                        <img class="sala__imagen" src="<%= room.imagen %>">
+                        <div class="sala__cuerpo">
+                            <h1 class="sala__nombre"><%= room.nombre %></h1>
+                        </div>
+                    </div>
+                </a>
+              <% }); %>
+        </div>
+    </main>
+</body>
+</html>

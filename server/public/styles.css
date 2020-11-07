@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: rgb(82, 82, 82); 
+    font-family: 'Luckiest Guy', cursive;
+}
+body {
+    background-color: rgba(255, 253, 222, .8);
+    font-size: 1rem;
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 0;
+}
+.logo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem 0;
+    cursor: pointer;
+}
+.logo__imagen {
+    height: 100px;
+    width: 100px;
+    margin-bottom: -20px;
+}
+.logo__texto {
+    width: 100%;
+}
+.modal {    
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    position: fixed;
+    background-color: rgba(255, 253, 222, .8);
+    text-align: center;
+}
+.titulo--center {
+    text-align: center;
+}
+.modal__form-nick {
+    width: 600px;
+    height: 300px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    background: white;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    position: relative;
+}
+.modal__form-nick::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    width: 100px;
+    height: 100px;
+    background: url('./img/chat_icon.png') center top / contain no-repeat;
+}
+.modal__input {
+    color: rgb(82, 82, 82);
+    font-size: 1.2rem;
+    padding: 5px 20px 5px 4px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px solid rgb(201, 201, 201);   
+    background-color: transparent;      
+}
+.modal__input:focus {
+    outline: none;
+}
+.titulo {
+    color: rgb(82, 82, 82);
+    font-size: 4rem;
+}
+.titulo__texto {
+    font-weight: 500;
+    color: rgb(235, 221, 72);
+}
+main {
+    display: flex;
+    padding: 100px 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.chat {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 50%;
+    min-height: 70vh;
+    margin-bottom: 200px;
+}
+.chat__usuarios-sala {
+    background-color: rgba(235, 221, 72, .7);
+    width: 20%;
+    min-height: inherit;
+    text-align: center;
+}
+
+.nick {
+    cursor: pointer;
+    display: block;
+    margin: 6px 0;
+}
+.nick:hover {
+    background: green;
+}
+.cabecera {
+    width: 100%;
+    height: 2rem;
+    background-color: white;
+    text-align: center;
+}
+.chat__caja-mensajes {
+    height: 655px;
+    overflow-y: auto;
+}
+.chat__mensajes {
+    position: relative;
+    background-color: rgba(82, 82, 82, .2);
+    min-height: inherit;
+    width: 80%;
+}
+.mensaje {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1rem;
+    background-color: rgb(235, 221, 72);
+    margin: 1rem auto;
+    border-radius: 2px;
+    width: 90%;
+}
+.mensaje--fondo-oscuro {
+    background-color: rgb(82, 82, 82);
+}
+/* Cuando se introduce u  texto de una sola palabra largo, no hace salto de linea*/
+.mensaje__texto {
+    overflow-wrap: break-word;
+}
+.mensaje__texto--blanco {
+    color: white;
+}
+.chat__form-enviar {
+    position: relative;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+}
+.chat__caja-mensaje {   
+    padding: 1rem;
+    outline: none;
+    border: none;
+    width: 90%;
+    height: 80px;
+    resize: none;
+}
+.chat__boton {
+    transition: all .5s;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+}
+.chat__boton:hover {
+    background-color: rgb(161, 161, 161);
+    color: rgb(250, 250, 250);
+}
+.chat__boton:focus {
+    outline: none;
+}
+.logo__--absolute {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translate(-50%);
+}
+.cont-salas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+.sala {
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    width: 300px;
+    height: 300px;
+}
+.sala::before {
+    transition: all .5s;
+    position: absolute;
+    background-color: rgba(235,221,72,.9);
+    content: '';
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+.sala:hover::before{
+    background-color: rgba(0,0,0,.8);
+}
+.sala__cuerpo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .2s;
+    opacity: 1;
+    text-align: center;
+}
+.sala:hover .sala__cuerpo {
+    opacity: 0;
+}
+.sala__imagen {
+    width: 300px;
+    height: 300px;
+    object-fit: cover; 
+}
+.sala__nombre {
+    color: white;
+    letter-spacing: 2px;
+}

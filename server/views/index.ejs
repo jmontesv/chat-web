@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"></link>
+    <script>
+        const rooms = '<%= rooms %>';
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Chat web</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img class="logo__imagen" src="/img/chat_icon.png" alt="">
+            <div class="logo__texto">
+                <h1 class="titulo titulo--center">Chat
+                    <span class="titulo__texto">web</span>
+                </h1>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="cont-salas">
+            <% rooms.forEach((room) => { %>
+                <a href="/<%= room.nombre %>">
+                    <div class="sala">
+                        <img class="sala__imagen" src="<%= room.imagen %>">
+                        <div class="sala__cuerpo">
+                            <h1 class="sala__nombre"><%= room.nombre %></h1>
+                        </div>
+                    </div>
+                </a>
+              <% }); %>
+        </div>
+    </main>
+</body>
+</html>
+
